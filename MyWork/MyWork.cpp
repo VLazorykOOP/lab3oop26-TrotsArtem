@@ -21,21 +21,21 @@ class Triangle {
     int color;
 
 public:
-    // 1. Конструктор за замовчуванням
+    // Конструктор за замовчуванням
     Triangle() : a(1.0), b(1.0), c(1.0), color(0) {}
 
-    // 2. Конструктор з параметрами
+    // Конструктор з параметрами
     Triangle(double a, double b, double c, int color) {
-        if (isValid(a, b, c)) { // Якщо сторони утворюють правильний трикутник
+        if (isValid(a, b, c)) { // Якщо утворюється правильний трикутник
             this->a = a; this->b = b; this->c = c;
         }
-        else { // Інакше ставимо значення за замовчуванням
+        else { // Інакше значення за замовчуванням
             this->a = 1.0; this->b = 1.0; this->c = 1.0;
         }
         this->color = (color >= 0) ? color : 0;
     }
 
-    // Перевірки існування трикутника (сума двох сторін більша за третю)
+    // Перевірка існування (сума двох сторін більша за третю)
     bool isValid(double a, double b, double c) {
         return (a > 0 && b > 0 && c > 0 && (a + b > c) && (a + c > b) && (b + c > a));
     }
@@ -46,7 +46,7 @@ public:
     double getC() const { return c; }
     int getColor() const { return color; }
 
-    // Встановлення сторін із перевіркою коректності
+    // Встановлення сторін, перевірка коректності
     void setSides(double a, double b, double c) {
         if (isValid(a, b, c)) {
             this->a = a; this->b = b; this->c = c;
